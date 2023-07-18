@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/crimeListFragment">
+
+    <fragment
+        android:id="@+id/crimeListFragment"
+        android:name="com.example.criminalintent.CrimeListFragment"
+        android:label="fragment_crime_list"
+        tools:layout="@layout/fragment_crime_list" >
+        <action
+            android:id="@+id/action_crimeListFragment_to_crimeFragment"
+            app:destination="@id/crimeFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/crimeFragment"
+        android:name="com.example.criminalintent.CrimeFragment"
+        android:label="fragment_crime"
+        tools:layout="@layout/fragment_crime" >
+        <action
+            android:id="@+id/action_crimeFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+        <argument
+            android:name="date"
+            app:argType="java.util.Date" />
+        <action
+            android:id="@+id/action_crimeFragment_to_timePickerFragment"
+            app:destination="@id/timePickerFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment"
+        android:name="com.example.criminalintent.DatePickerFragment"
+        android:label="fragment_dialog_picker" />
+    <dialog
+        android:id="@+id/timePickerFragment"
+        android:name="com.example.criminalintent.TimePickerFragment"
+        android:label="TimePickerFragment" />
+</navigation>
